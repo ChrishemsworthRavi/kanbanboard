@@ -1,0 +1,434 @@
+/* Tailwind base layers */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import Google Fonts - Inter for modern clean UI */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+/* === Global base styles === */
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #121212; /* dark background globally */
+  color: #e0e0e0; /* lighter text color for contrast */
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: #121212; /* dark */
+  color: #e0e0e0; /* off-white */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Sidebar */
+aside {
+  background: linear-gradient(180deg, #1f1f1f 0%, #2a2a2a 100%);
+  color: #c7c7c7;
+  padding: 2rem 1.5rem 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  overflow-y: auto;
+  border-top-right-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+  box-shadow: 0 0 25px #7b61ffaa; /* subtle purple glow */
+  width: 18rem; /* slightly wider */
+  font-weight: 600;
+}
+
+/* Smooth sidebar scrollbar */
+.sidebar-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #7b61ffaa transparent;
+}
+
+.sidebar-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb {
+  background-color: #7b61ffaa;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+/* Sidebar brand title */
+aside > div:first-child {
+  font-size: 2.25rem;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  text-shadow: 0 3px 10px #7b61ffcc;
+  user-select: none;
+  color: #a78bfa;
+}
+
+/* Sidebar navigation */
+aside nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+aside nav button {
+  background: transparent;
+  border: none;
+  color: #c7c7c7;
+  font-weight: 700;
+  font-size: 1.125rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 1.25rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+}
+
+aside nav button:hover,
+aside nav button:focus-visible {
+  background-color: #7b61ffbb;
+  outline: none;
+  transform: scale(1.07);
+  box-shadow: 0 0 20px #7b61ffdd;
+  color: #fff;
+}
+
+/* Sidebar button icon circle */
+aside nav button span {
+  width: 2rem;
+  height: 2rem;
+  background-color: #7b61ff;
+  border-radius: 9999px;
+  color: white;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  user-select: none;
+  box-shadow: 0 0 8px #7b61ffcc;
+}
+
+/* Main layout container */
+.flex {
+  display: flex;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+}
+
+/* Main content wrapper */
+.flex-1 {
+  flex: 1 1 0%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: #181818;
+  color: #ddd;
+  padding: 2rem;
+}
+
+/* Top header */
+header {
+  background-color: #222222;
+  box-shadow: 0 2px 10px rgba(123, 97, 255, 0.6);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  color: #ddd;
+}
+
+/* Header title */
+header h2 {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #a78bfa;
+}
+
+/* Search container */
+header > div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Search input */
+input[type="text"] {
+  padding: 0.5rem 1.5rem;
+  border-radius: 9999px;
+  border: 2px solid #7b61ff;
+  width: 18rem;
+  font-size: 1rem;
+  color: #eee;
+  background-color: #2a2a2a;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]::placeholder {
+  color: #9a9a9a;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #a78bfa;
+  box-shadow: 0 0 10px #a78bfaaa;
+}
+
+/* User avatar circle in header */
+header > div > div.w-10.h-10 {
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: #7b61ff;
+  color: white;
+  border-radius: 9999px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  box-shadow: 0 0 15px #7b61ffbb;
+  transition: background-color 0.3s ease;
+}
+
+header > div > div.w-10.h-10:hover {
+  background-color: #a78bfa;
+}
+
+/* Main content area */
+main {
+  flex: 1 1 0%;
+  padding: 1.5rem 2rem;
+  max-width: 1120px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow-y: auto;
+  background-color: #1c1c1c;
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 40px -15px #7b61ff88;
+  color: #ddd;
+}
+
+/* Scrollbar for main content */
+main::-webkit-scrollbar {
+  width: 8px;
+}
+
+main::-webkit-scrollbar-thumb {
+  background-color: #7b61ffbb;
+  border-radius: 10px;
+}
+
+/* Kanban board container */
+main > div {
+  padding: 2rem;
+  background: linear-gradient(135deg, #2a2a2a, #1c1c1c);
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 50px -10px #7b61ffaa;
+}
+
+/* Add Task heading */
+main h1 {
+  font-weight: 900;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #a78bfa;
+  letter-spacing: 0.06em;
+}
+
+/* Input and button container */
+main .flex.flex-col.md\\:flex-row {
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Task input field */
+main input[type="text"] {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  font-size: 1.125rem;
+  border-radius: 1.5rem;
+  border: 2px solid #7b61ff;
+  box-shadow: 0 0 10px #7b61ff66;
+  color: #ddd;
+  background-color: #2a2a2a;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+main input[type="text"]::placeholder {
+  color: #9a9a9a;
+}
+
+main input[type="text"]:focus {
+  outline: none;
+  border-color: #a78bfa;
+  box-shadow: 0 0 15px #a78bfacc;
+}
+
+/* Submit button */
+main button {
+  background: linear-gradient(
+    to right,
+    #7b61ff,
+    #a78bfa,
+    #7b61ff
+  );
+  color: white;
+  font-weight: 700;
+  padding: 1rem 2.5rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 15px 25px -5px #a78bfaaa;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1.125rem;
+  user-select: none;
+}
+
+main button:hover {
+  background: linear-gradient(
+    to right,
+    #a78bfa,
+    #7b61ff,
+    #a78bfa
+  );
+  box-shadow: 0 20px 40px -10px #7b61ffcc;
+}
+
+main button:active {
+  transform: scale(0.95);
+  box-shadow: inset 0 2px 10px #7b61ffcc;
+}
+
+/* Kanban columns container */
+main > div > .flex {
+  display: flex;
+  gap: 1.5rem;
+}
+
+/* Each Kanban column */
+main > div > .flex > div {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Kanban column styles */
+.kanban-column {
+  background-color: #222222;
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 15px 40px -15px #7b61ff66;
+  border: 4px solid transparent;
+  transition: all 0.3s ease;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  color: #ddd;
+}
+
+.kanban-column.drag-active {
+  border-color: #a78bfa;
+  background-color: #2a2a2a;
+  box-shadow: 0 15px 50px -10px #a78bfaaa;
+}
+
+.kanban-column:hover:not(.drag-active) {
+  border-color: #7b61ff;
+  background-color: #2c2c2c;
+}
+
+/* Kanban column header */
+.kanban-column > .header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  color: #a78bfa;
+  font-size: 1.5rem;
+  font-weight: 700;
+  user-select: none;
+}
+
+/* Kanban column header icon */
+.kanban-column > .header > img,
+.kanban-column > .header > span {
+  width: 1.75rem;
+  height: 1.75rem;
+  filter: drop-shadow(0 0 3px #a78bfa88);
+}
+
+/* Kanban empty state text */
+.empty-state-pulse {
+  animation: pulseOpacity 2.5s infinite;
+  font-style: italic;
+  color: #666;
+  user-select: none;
+  margin-top: auto;
+  text-align: center;
+}
+
+/* Kanban card */
+.kanban-card {
+  padding: 1.25rem;
+  border-radius: 1.5rem;
+  background: linear-gradient(
+    45deg,
+    #3b2f61,
+    #573a9a,
+    #a784e0
+  ); /* purple gradient */
+  box-shadow: 0 5px 15px rgba(123, 97, 255, 0.6);
+  margin-bottom: 1rem;
+  cursor: grab;
+  transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+  color: #eee;
+  font-weight: 600;
+  text-shadow: 0 0 6px #a78bfaaa;
+}
+
+.kanban-card.dragging {
+  opacity: 0.6;
+  cursor: grabbing;
+  box-shadow: 0 0 30px #a78bfaee;
+  transform: scale(1.05);
+}
+
+/* Hide default focus outline but keep accessibility */
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid #a78bfa;
+  outline-offset: 2px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 640px) {
+  aside {
+    width: 14rem;
+    padding: 1.5rem 1rem;
+  }
+
+  main {
+    padding: 1rem;
+  }
+}
